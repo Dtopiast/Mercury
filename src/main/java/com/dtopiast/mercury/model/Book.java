@@ -1,5 +1,6 @@
 package com.dtopiast.mercury.model;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -18,8 +19,9 @@ public class Book {
     private  ArrayList < String > subjects = new ArrayList < String > ();
     private ArrayList <String > bookshelves = new ArrayList < String > ();
     @Enumerated(EnumType.STRING)
+    @JsonAlias("languages")
     private ArrayList < Lenguaje > languages = new ArrayList < Lenguaje > ();
-    @Enumerated(EnumType.STRING)
+    @JsonAlias("formats")
     private ArrayList<MediaTypeFormat> formats  = new ArrayList<MediaTypeFormat>();
 
     private boolean copyright;
