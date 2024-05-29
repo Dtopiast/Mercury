@@ -22,7 +22,7 @@ public class Book {
     @JsonAlias("languages")
     private ArrayList < Lenguaje > languages = new ArrayList < Lenguaje > ();
     @JsonAlias("formats")
-    private ArrayList<MediaTypeFormat> formats  = new ArrayList<MediaTypeFormat>();
+    private ArrayList<BookLink> bookLinks  = new ArrayList<BookLink>();
 
     private boolean copyright;
 
@@ -73,20 +73,19 @@ public class Book {
     public void setLanguages(ArrayList<Lenguaje> languages) {
         this.languages = languages;
     }
-
-    public ArrayList<MediaTypeFormat> getFormats() {
-        return formats;
-    }
-
-    public void setFormats(ArrayList<MediaTypeFormat> formats) {
-        this.formats = formats;
-    }
-
     public boolean isCopyright() {
         return copyright;
     }
 
     public void setCopyright(boolean copyright) {
         this.copyright = copyright;
+    }
+
+    public ArrayList<BookLink> getBookLinks() {
+        return bookLinks;
+    }
+
+    public void setBookLinks(ArrayList<BookLink> bookLinks) {
+        this.bookLinks = bookLinks;
     }
 }
