@@ -27,7 +27,8 @@ public class Book {
     private Map<String, String> formats = new HashMap<String, String>();
     private boolean copyright;
 
-
+    @JsonAlias("download_count")
+    private long donwloads;
     public float getId() {
         return id;
     }
@@ -88,5 +89,13 @@ public class Book {
 
     public void setFormats(Map<String, String> formats) {
         this.formats = formats;
+    }
+
+    public long getDonwloads() {
+        return donwloads;
+    }
+
+    public void setDonwloads(long donwloads) {
+        this.donwloads = donwloads;
     }
 }
