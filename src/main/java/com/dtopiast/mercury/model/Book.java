@@ -22,7 +22,7 @@ public class Book {
     private ArrayList <String > bookshelves = new ArrayList < String > ();
     @Enumerated(EnumType.STRING)
     @JsonAlias("languages")
-    private ArrayList < Lenguaje > languages = new ArrayList < Lenguaje > ();
+    private ArrayList <Languaje> languages = new ArrayList <Languaje> ();
     @JsonAlias("formats")
     private Map<String, String> formats = new HashMap<String, String>();
     private boolean copyright;
@@ -68,11 +68,11 @@ public class Book {
         this.bookshelves = bookshelves;
     }
 
-    public ArrayList<Lenguaje> getLanguages() {
+    public ArrayList<Languaje> getLanguages() {
         return languages;
     }
 
-    public void setLanguages(ArrayList<Lenguaje> languages) {
+    public void setLanguages(ArrayList<Languaje> languages) {
         this.languages = languages;
     }
     public boolean isCopyright() {

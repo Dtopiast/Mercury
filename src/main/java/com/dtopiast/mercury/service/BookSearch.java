@@ -3,6 +3,7 @@ package com.dtopiast.mercury.service;
 import com.dtopiast.mercury.dto.AuthorDto;
 import com.dtopiast.mercury.dto.BookDto;
 import com.dtopiast.mercury.model.Author;
+import com.dtopiast.mercury.model.Languaje;
 import com.dtopiast.mercury.wrapper.SearchRequest;
 import com.dtopiast.mercury.wrapper.SearchResponse;
 import com.dtopiast.mercury.model.Book;
@@ -80,7 +81,8 @@ public class BookSearch implements IBookSearch{
                 book.getBookshelves(),
                 book.getLanguages().stream().map(Enum::name).collect(Collectors.toCollection(ArrayList::new)),
                 new ArrayList<>(book.getFormats().values()),
-                book.isCopyright()
+                book.isCopyright(),
+                book.getDonwloads()
         );
     }
 
@@ -88,6 +90,27 @@ public class BookSearch implements IBookSearch{
     public long Count() {
         return repository.count();
     }
+
+    @Override
+    public List<Book> getBooksByLanguage(List<Languaje> languages, int maxResults) {
+        List<Book> result = new ArrayList<>();
+        int count = 0;
+        for (Book book : repository.findAll()) {
+            for (Languaje language : languages) {
+                if (book.getLanguages().contains(language)) {
+                    result.add(book);
+                    count++;
+                    if (count >= maxResults) {
+                        return result;
+                    }
+                    break;
+                }
+            }
+        }
+
+
+        return result;
+}
 
     private SearchResponse sendToApi(SearchRequest data) throws JsonProcessingException, InterruptedException {
         StringBuilder sb = new StringBuilder();

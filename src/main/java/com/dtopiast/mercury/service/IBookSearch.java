@@ -1,6 +1,7 @@
 package com.dtopiast.mercury.service;
 
 import com.dtopiast.mercury.dto.BookDto;
+import com.dtopiast.mercury.model.Languaje;
 import com.dtopiast.mercury.wrapper.SearchRequest;
 import com.dtopiast.mercury.model.Book;
 
@@ -16,5 +17,5 @@ public interface IBookSearch {
     List<BookDto> bookModelsToDto(List<Book> books);
     BookDto bookModelToDto(Book book);
     long Count();
-
+    List<Book> getBooksByLanguage(List<Languaje> languajes, int maxResults);
 }
