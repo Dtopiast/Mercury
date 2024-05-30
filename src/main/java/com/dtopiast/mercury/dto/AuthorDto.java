@@ -1,18 +1,19 @@
 package com.dtopiast.mercury.dto;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public final class AuthorDto {
     private final String Name;
     private final int birthYear;
     private final int deathYear;
-    private ArrayList<BookDto> books;
+    private List<BookDto> books;
 
     public <bookDto> AuthorDto(String Name,
                                int birthYear,
                                int deathYear,
-                               ArrayList<BookDto>books) {
+                               List<BookDto>books) {
         this.Name = Name;
         this.birthYear = birthYear;
         this.deathYear = deathYear;
@@ -62,11 +63,11 @@ public final class AuthorDto {
     }
 
 
-    public ArrayList<BookDto> getBooks() {
+    public List<BookDto> getBooks() {
         return books;
     }
 
-    public void setBooks(ArrayList<BookDto> books) {
+    public void setBooks(List<BookDto> books) {
         this.books = books;
     }
 }
