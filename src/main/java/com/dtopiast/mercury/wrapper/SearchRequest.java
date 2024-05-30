@@ -7,5 +7,6 @@ public record SearchRequest(String tittle,
                             List<String> lenguajes,
                             int authorBirthday,
                             int authorDead,
-                            Boolean orderBy)
+                            Boolean orderBy,
+                            int quantity)
 {}
