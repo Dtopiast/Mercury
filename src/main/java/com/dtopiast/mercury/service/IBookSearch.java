@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface IBookSearch {
     List<Book> getAllBooks();
-    List<Book> getBooks(int quantity);
+    List<Book> getBooks(long quantity);
     List<Book> queryBooks(SearchRequest dto);
     List<Book> getTop10Books();
     Optional<Book> getBookByName(String bookName);

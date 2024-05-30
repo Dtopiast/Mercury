@@ -35,7 +35,7 @@ public class BookSearch implements IBookSearch{
     }
 
     @Override
-    public List<Book> getBooks(int quantity) {
+    public List<Book> getBooks(long quantity) {
         return repository.findAll().subList(0,quantity);
     }
 
@@ -82,6 +82,11 @@ public class BookSearch implements IBookSearch{
                 new ArrayList<>(book.getFormats().values()),
                 book.isCopyright()
         );
+    }
+
+    @Override
+    public long Count() {
+        return repository.count();
     }
 
     private SearchResponse sendToApi(SearchRequest data) throws JsonProcessingException, InterruptedException {
