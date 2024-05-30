@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController("books")
@@ -45,11 +44,21 @@ public class BooksController {
     @GetMapping("byName/{name}")
 
     public ResponseEntity<BookDto> getBookByName(@PathVariable String name){
-        var temp =  search.getBookByName(name);
+        var temp =  search.getBookByNameOrAuthor(name);
         return temp.map(book -> ResponseEntity.status(HttpStatus.ACCEPTED).body(search.bookModelToDto(book))).orElseGet(()
                 -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
 
     }
+    @GetMapping("byAuthor/{name}")
+
+    public ResponseEntity<BookDto> getBookByAuthor(@PathVariable String name){
+        var temp =  search.getBookByNameOrAuthor(name);
+        return temp.map(book -> ResponseEntity.status(HttpStatus.ACCEPTED).body(search.bookModelToDto(book))).orElseGet(()
+                -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
+
+    }
+
+
     @GetMapping("byQuantity/{quantity}")
 
     public List<BookDto> getBooks(@PathVariable int quantity){

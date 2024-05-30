@@ -56,7 +56,7 @@ public class BookSearch implements IBookSearch{
     }
 
     @Override
-    public Optional<Book> getBookByName(String bookName) {
+    public Optional<Book> getBookByNameOrAuthor(String bookName) {
         return repository.getBookByName(bookName);
     }
 

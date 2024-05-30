@@ -12,7 +12,7 @@ public interface IBookSearch {
     List<Book> getBooks(long quantity);
     List<Book> queryBooks(SearchRequest dto);
     List<Book> getTop10Books();
-    Optional<Book> getBookByName(String bookName);
+    Optional<Book> getBookByNameOrAuthor(String bookName);
     List<BookDto> bookModelsToDto(List<Book> books);
     BookDto bookModelToDto(Book book);
     long Count();
