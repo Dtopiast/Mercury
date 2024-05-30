@@ -15,5 +15,6 @@ public interface IBookSearch {
     Optional<Book> getBookByName(String bookName);
     List<BookDto> bookModelsToDto(List<Book> books);
     BookDto bookModelToDto(Book book);
+    long Count();
 
 }
