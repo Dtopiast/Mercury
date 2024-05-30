@@ -60,8 +60,7 @@ public class BooksController {
 
 
     @GetMapping("byQuantity/{quantity}")
-
-    public List<BookDto> getBooks(@PathVariable int quantity){
+    public List<BookDto> getBooks(@PathVariable long quantity){
         var temp =  search.getBooks(quantity);
         return  search.bookModelsToDto(temp);
     }
