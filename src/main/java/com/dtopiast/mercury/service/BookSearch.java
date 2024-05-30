@@ -36,7 +36,7 @@ public class BookSearch implements IBookSearch{
 
     @Override
     public List<Book> getBooks(long quantity) {
-        return repository.findAll().subList(0,quantity);
+        return repository.findAll().subList(0,(int)quantity);
     }
 
     @Override
