@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
 @Table(name = "book")
@@ -22,8 +24,7 @@ public class Book {
     @JsonAlias("languages")
     private ArrayList < Lenguaje > languages = new ArrayList < Lenguaje > ();
     @JsonAlias("formats")
-    private ArrayList<BookLink> bookLinks  = new ArrayList<BookLink>();
-
+    private Map<String, String> formats = new HashMap<String, String>();
     private boolean copyright;
 
 
@@ -81,11 +82,11 @@ public class Book {
         this.copyright = copyright;
     }
 
-    public ArrayList<BookLink> getBookLinks() {
-        return bookLinks;
+    public Map<String, String> getFormats() {
+        return formats;
     }
 
-    public void setBookLinks(ArrayList<BookLink> bookLinks) {
-        this.bookLinks = bookLinks;
+    public void setFormats(Map<String, String> formats) {
+        this.formats = formats;
     }
 }
